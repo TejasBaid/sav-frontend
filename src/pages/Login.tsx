@@ -9,7 +9,7 @@ export const Login: FC = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  
+
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ export const Login: FC = () => {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:3001/api/auth/login', {
+      const res = await fetch('https://sav-backend-1.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -32,7 +32,7 @@ export const Login: FC = () => {
       }
 
       login(data.token, data.username, data.role);
-      
+
       if (data.role === 'superuser') {
         navigate('/superuser');
       } else {
@@ -47,11 +47,11 @@ export const Login: FC = () => {
 
   return (
     <div className="flex-center" style={{ minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }}>
-      <div 
-        className="glass-panel animate-fade-in" 
-        style={{ 
-          width: '100%', 
-          maxWidth: '400px', 
+      <div
+        className="glass-panel animate-fade-in"
+        style={{
+          width: '100%',
+          maxWidth: '400px',
           padding: '2.5rem',
           display: 'flex',
           flexDirection: 'column',
@@ -59,9 +59,9 @@ export const Login: FC = () => {
         }}
       >
         <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-          <h1 style={{ 
-            fontSize: '2rem', 
-            fontWeight: 800, 
+          <h1 style={{
+            fontSize: '2rem',
+            fontWeight: 800,
             letterSpacing: '-0.05em',
             background: 'linear-gradient(90deg, var(--accent-primary) 0%, var(--metric-green-icon) 100%)',
             WebkitBackgroundClip: 'text',
@@ -79,12 +79,12 @@ export const Login: FC = () => {
               {error}
             </div>
           )}
-          
+
           <div style={{ position: 'relative' }}>
             <User size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-            <input 
-              type="text" 
-              placeholder="Username" 
+            <input
+              type="text"
+              placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               style={{
@@ -103,8 +103,8 @@ export const Login: FC = () => {
 
           <div style={{ position: 'relative' }}>
             <Lock size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-            <input 
-              type="password" 
+            <input
+              type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -122,8 +122,8 @@ export const Login: FC = () => {
             />
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={loading}
             className="btn btn-primary"
             style={{ width: '100%', padding: '0.875rem', marginTop: '0.5rem' }}
@@ -133,7 +133,7 @@ export const Login: FC = () => {
         </form>
 
         <p style={{ marginTop: '2rem', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-          Hint: Use <strong style={{color: 'var(--text-secondary)'}}>admin</strong> / <strong style={{color: 'var(--text-secondary)'}}>savra2026</strong>
+          Hint: Use <strong style={{ color: 'var(--text-secondary)' }}>admin</strong> / <strong style={{ color: 'var(--text-secondary)' }}>savra2026</strong>
         </p>
       </div>
     </div>
