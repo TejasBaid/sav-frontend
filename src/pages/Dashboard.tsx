@@ -36,9 +36,9 @@ export function Dashboard() {
     const loadData = async () => {
       setLoading(true);
       try {
-        const [sumData, tData, trendData] = await Promise.all([
+        const [sumData, , trendData] = await Promise.all([
           fetchDashboardSummary(selectedGrade, selectedSubject),
-          fetchTeachers(selectedGrade, selectedSubject), 
+          fetchTeachers(selectedGrade, selectedSubject),
           fetchTrends(undefined, selectedGrade, selectedSubject)
         ]);
         setSummary(sumData);

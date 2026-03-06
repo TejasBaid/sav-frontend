@@ -1,6 +1,6 @@
 import type { DashboardSummary, Teacher, TeacherDetail, TrendData } from '../types';
 
-const API_BASE = 'http://localhost:3001/api';
+const API_BASE = import.meta.env.VITE_API_URL || 'https://sav-backend-1.onrender.com/api';
 
 const getHeaders = () => {
   const token = localStorage.getItem('savra_token');
