@@ -27,7 +27,7 @@ export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
         const payload = JSON.parse(atob(token.split('.')[1]));
         setUser({ id: payload.id, username: payload.username, role: payload.role });
       } catch (e) {
-        // Fallback or bad token
+
         setUser(null);
         setToken(null);
         localStorage.removeItem('savra_token');

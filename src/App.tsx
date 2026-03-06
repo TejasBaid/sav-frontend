@@ -19,37 +19,37 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
-      <Route 
-        path="/dashboard" 
+      <Route
+        path="/dashboard"
         element={
           <ProtectedRoute>
             <Dashboard />
           </ProtectedRoute>
-        } 
+        }
       />
-      <Route 
-        path="/teachers" 
+      <Route
+        path="/teachers"
         element={
           <ProtectedRoute>
             <TeachersList />
           </ProtectedRoute>
-        } 
+        }
       />
-      <Route 
-        path="/superuser" 
+      <Route
+        path="/superuser"
         element={
           <ProtectedRoute>
             <SuperuserAdmin />
           </ProtectedRoute>
-        } 
+        }
       />
-      <Route 
-        path="/teacher/:id" 
+      <Route
+        path="/teacher/:id"
         element={
           <ProtectedRoute>
             <TeacherProfile />
           </ProtectedRoute>
-        } 
+        }
       />
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
@@ -60,7 +60,7 @@ function App() {
   const [loadingApp, setLoadingApp] = useState(true);
 
   useEffect(() => {
-    // Artificial delay to show off the Savra preloader per UI mockup request
+
     const timer = setTimeout(() => {
       setLoadingApp(false);
     }, 1500);

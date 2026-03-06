@@ -14,7 +14,7 @@ export function SuperuserAdmin() {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  // Route guarding explicitly handled here since App.tsx might only check general Auth
+
   if (user?.role !== 'superuser') {
     return (
       <div className="flex-center" style={{ height: '100vh', flexDirection: 'column', gap: '1rem', backgroundColor: 'var(--bg-primary)' }}>
