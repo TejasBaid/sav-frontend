@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Premium Teal & Soft Pastel Palette */
+  --bg-primary: #EEF3F3; /* Authentic soft grayish-teal background */
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F8FAFC;
+  
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  
+  --accent-primary: #148C72; /* The exact teal from the screenshot */
+  --accent-primary-hover: #0F6B56;
+  --accent-light: #E7F3F0; /* Soft teal background for active states */
+  
+  /* Metric Soft Backgrounds with Darker Vibrant Icons */
+  --metric-red: #FEE2E2;
+  --metric-red-icon: #EF4444;
+  --metric-green: #D1FAE5;      
+  --metric-green-icon: #10B981;  
+  --metric-orange: #FFEDD5;     
+  --metric-orange-icon: #F97316;
+  --metric-purple: #F3E8FF;     
+  --metric-purple-icon: #A855F7;
+  --metric-gray: #F1F5F9;
+  --metric-gray-icon: #64748B;
+
+  --border-light: #E5E7EB;
+
+  /* Shadows (Super soft, expansive elevations for airy feel) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.05);
+  
+  /* Soft Rounded Radiuses */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 999px; 
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Base Classes */
+.glass-panel {
+  background: var(--bg-secondary);
+  border: 1px solid transparent; /* Remove harsh borders, rely on shadows */
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(150%); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Layout */
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0; /* Can add 1rem padding if we want the floating layout, but image shows attached sidebar */
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--bg-secondary);
+  border-right: none; 
+  padding: 1.5rem 1rem; /* Tighter side padding for airy pills */
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Button & Inputs (Tailwind-like utility classes implemented in vanilla CSS) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--bg-tertiary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-tertiary);
+}
